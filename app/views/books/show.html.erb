@@ -1,13 +1,17 @@
 <div class="book-stats">
+  
       <h2>Title: <%=@book.title%></h2></br>
-      <h2>Author(s): <%=@book.authors%></h2></br>
+      <h2>Author(s): <%@book.authors.each do |author|%>
+        <%=author.name%>
+        <%end%>
+      </h2></nr>
       <h2>Pages: <%=@book.pages%></h2></br>
       <h2>Total Reviews: <%=@book.reviews.count%></h2></br>
       <% @book.reviews.each do |review| %>
       <div class="reviews">
         <h2>Review name: <%=review.title%></h2></br>
         <h2>Review: <%=review.description%></h2></br>
-        <h2>Score: <%review.score%></h2></br>
+        <h2>Score: <%=review.score%></h2></br>
       </div>
       <% end %>
     </div>

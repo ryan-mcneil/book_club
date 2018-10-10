@@ -9,6 +9,12 @@ RSpec.describe 'as a visitor' do
          year: 2000)
        user_1 = User.create(name: "User 1")
 
+       author_1 = Author.create(
+         name: "Betty"
+        )
+
+        book_authors_1 = book_1.book_authors.create(author: author_1)
+
        user_1.reviews.create(
          title: "Wonderful",
          description: "That was Fantastic!",
@@ -45,9 +51,10 @@ RSpec.describe 'as a visitor' do
 
       within(".book-stats") do
         expect(page).to have_content(book_1.title)
-        expect(page).to have_content(book_1.authors.name)
-        # expect(page).to have_content(book.reviews)
+        expect(page).to have_content(book_1.authors.first.name)
+        save_and_open_page
         expect(page).to have_content(book_1.pages)
+        expect(page).to have_content(book_1.reviews)
       end
     end
   end
