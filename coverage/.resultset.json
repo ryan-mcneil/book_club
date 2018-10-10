@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ryanmcneil/turing/2module/projects/book_club/app/models/author.rb": [
+      "/Users/ruthbrand/turing/mod_two/book_club/book_club/app/models/author.rb": [
         1,
         1,
         null,
@@ -10,12 +10,12 @@
         null,
         null
       ],
-      "/Users/ryanmcneil/turing/2module/projects/book_club/app/models/application_record.rb": [
+      "/Users/ruthbrand/turing/mod_two/book_club/book_club/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/ryanmcneil/turing/2module/projects/book_club/spec/models/book_authors_spec.rb": [
+      "/Users/ruthbrand/turing/mod_two/book_club/book_club/spec/models/book_authors_spec.rb": [
         1,
         null,
         1,
@@ -26,13 +26,41 @@
         null,
         null
       ],
-      "/Users/ryanmcneil/turing/2module/projects/book_club/app/models/book_author.rb": [
+      "/Users/ruthbrand/turing/mod_two/book_club/book_club/app/models/book_author.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/ryanmcneil/turing/2module/projects/book_club/spec/models/book_spec.rb": [
+      "/Users/ruthbrand/turing/mod_two/book_club/book_club/spec/models/book_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/ruthbrand/turing/mod_two/book_club/book_club/app/models/book.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/ruthbrand/turing/mod_two/book_club/book_club/spec/models/review_spec.rb": [
         1,
         null,
         1,
@@ -48,16 +76,36 @@
         null,
         null
       ],
-      "/Users/ryanmcneil/turing/2module/projects/book_club/app/models/book.rb": [
+      "/Users/ruthbrand/turing/mod_two/book_club/book_club/app/models/review.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/ruthbrand/turing/mod_two/book_club/book_club/spec/models/user_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/ruthbrand/turing/mod_two/book_club/book_club/app/models/user.rb": [
         1,
         1,
         null,
         1,
         1,
-        null,
         null
       ]
     },
-    "timestamp": 1539130319
+    "timestamp": 1539131699
   }
 }
