@@ -4,5 +4,6 @@
   <h2><%= book.title %></h2>
   <p>Year: <%= book.year %> </p>
   <p>Pages: <%= book.pages %> </p>
-
+  <p>Total Reviews: <%= book.reviews.count %></p>
+  <p>Average Rating: <%= book.average_rating %></p>
 <% end %>
