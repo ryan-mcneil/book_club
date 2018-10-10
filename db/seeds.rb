@@ -10,7 +10,7 @@
 20.times do
   Author.create(
     name: Faker::LordOfTheRings.character,
-    image: Faker::Fillmurray.Image
+    image: Faker::Fillmurray.image
   )
 end
 
@@ -18,12 +18,12 @@ end
   book = Book.create(
     title: Faker::Book.title,
     pages: Faker::Number.number(3),
-    year: Faker::Number.within(1940..2010),
+    year: Faker::Number.between(1940, 2010),
     image: Faker::LoremPixel.image
   )
 
     rand(1..2).times do
-      book.book_author.create(
+      book.book_authors.create(
         author_id: rand(1..20)
       )
     end
@@ -36,10 +36,10 @@ end
   )
 
   rand(1..5).times do
-    user.review.create(
+    user.reviews.create(
       title: Faker::MichaelScott.quote,
       description: Faker::SiliconValley.quote,
-      score: Faker::Number.within(1..5),
+      score: Faker::Number.between(1, 5),
       book_id: rand(1..30)
    )
   end
