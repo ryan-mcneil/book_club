@@ -7,33 +7,47 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-30.times do
-  Book.create(
- title: Faker::Book.title,
- pages: Faker::Number.number(3),
- year: Faker::Number.within(1940..2010),
- image: Faker::LoremPixel.image
-)
-end
-
-10.times do
-  User.create(
-    name: Faker::GameOfThrones.character,
-    image: Faker::Avatar.image
+20.times do
+  Author.create(
+    name: Faker::LordOfTheRings.character,
+    image: Faker::Fillmurray.Image
   )
 end
 
- 10.times do
-   Review.create(
-     title: Faker::MichaelScott.quote,
-     description: Faker::SiliconValley.quote,
-     score: Faker::Number.within(1..5)
+ 30.times do
+  book = Book.create(
+    title: Faker::Book.title,
+    pages: Faker::Number.number(3),
+    year: Faker::Number.within(1940..2010),
+    image: Faker::LoremPixel.image
+  )
+
+    rand(1..2).times do
+      book.book_author.create(
+        author_id: rand(1..20)
+      )
+    end
+end
+
+20.times do
+  user = User.create(
+    name: Faker::GameOfThrones.character,
+    image: Faker::Avatar.image
+  )
+
+  rand(1..5).times do
+    user.review.create(
+      title: Faker::MichaelScott.quote,
+      description: Faker::SiliconValley.quote,
+      score: Faker::Number.within(1..5),
+      book_id: rand(1..30)
    )
   end
+end
 
-  10.times do
-    Author.create(
-      name: Faker::LordOfTheRings.character,
-      image: Faker::Fillmurray.Image
-    )
-  end
+
+ #  20.times do
+ #    author.book_author.create(
+ #     book_id: rand(1..30)
+ #   )
+ # end
