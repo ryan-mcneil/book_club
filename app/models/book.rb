@@ -7,6 +7,6 @@ class Book < ApplicationRecord
   has_many :reviews
 
   def average_rating
-    reviews.average(:score)
+    reviews.average(:score).round(1)
   end
 end

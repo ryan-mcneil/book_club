@@ -33,22 +33,28 @@ describe 'book index' do
     user_4.reviews.create(
       title: "Average",
       description: "That was Average!",
-      score: 4, book: book_2)
+      score: 4,
+      book: book_2)
     user_5 = User.create(name: "User 5")
     user_5.reviews.create(
       title: "What's a book",
       description: "That was a book!",
-      score: 2, book: book_2)
+      score: 2,
+      book: book_2)
 
     visit '/books'
 
     expect(page).to have_content(book_1.title)
     expect(page).to have_content("Pages: #{book_1.pages}")
     expect(page).to have_content("Year: #{book_1.year}")
+    expect(page).to have_content("Total Reviews: 3")
+    expect(page).to have_content("Average Rating: 2")
 
     expect(page).to have_content(book_2.title)
     expect(page).to have_content("Pages: #{book_2.pages}")
     expect(page).to have_content("Year: #{book_2.year}")
+    expect(page).to have_content("Total Reviews: 2")
+    expect(page).to have_content("Average Rating: 3")
 
   end
 end
