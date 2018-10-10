@@ -1,8 +1,10 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ryanmcneil/turing/2module/projects/book_club/app/models/book.rb": [
+      "/Users/ryanmcneil/turing/2module/projects/book_club/app/models/author.rb": [
         1,
+        1,
+        null,
         1,
         null,
         null
@@ -11,8 +13,47 @@
         1,
         1,
         null
+      ],
+      "/Users/ryanmcneil/turing/2module/projects/book_club/spec/models/book_authors_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/Users/ryanmcneil/turing/2module/projects/book_club/app/models/book_author.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/ryanmcneil/turing/2module/projects/book_club/spec/models/book_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null
+      ],
+      "/Users/ryanmcneil/turing/2module/projects/book_club/app/models/book.rb": [
+        1,
+        1,
+        null,
+        1,
+        null
       ]
     },
-    "timestamp": 1539128363
+    "timestamp": 1539129956
   }
 }
