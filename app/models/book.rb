@@ -8,5 +8,5 @@ class Book < ApplicationRecord
 
   def average_rating
     reviews.average(:score).round(1)
-  end
+  end 
 end
