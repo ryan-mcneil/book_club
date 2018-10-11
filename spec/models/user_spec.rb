@@ -65,7 +65,7 @@ describe User, type: :model do
 
     it 'should find most active users' do
       expected = [@user_2, @user_1, @user_3]
-      expect(User.most_active_users).to eq(expected)
+      expect(User.most_active).to eq(expected)
     end
   end
 end

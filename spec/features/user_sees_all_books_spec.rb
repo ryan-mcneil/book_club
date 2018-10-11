@@ -189,7 +189,7 @@ describe 'when I visit the books index' do
 
     visit '/books'
 
-    within "#highest_rated" do
+    within "#highest-rated" do
       expect(all(".book-title")[0]).to have_content(@book_2.title)
       expect(all(".book-title")[1]).to have_content(@book_1.title)
       expect(all(".book-title")[2]).to have_content(@book_3.title)
@@ -201,7 +201,7 @@ describe 'when I visit the books index' do
 
     visit '/books'
 
-    within "#lowest_rated" do
+    within "#lowest-rated" do
       expect(all(".book-title")[0]).to have_content(@book_3.title)
       expect(all(".book-title")[1]).to have_content(@book_1.title)
       expect(all(".book-title")[2]).to have_content(@book_2.title)
@@ -213,10 +213,10 @@ describe 'when I visit the books index' do
 
     visit '/books'
 
-    within "#most_active" do
-      expect(all(".user-name")[0]).to have_content(@user_2.name)
-      expect(all(".user-name")[1]).to have_content(@user_1.name)
-      expect(all(".user-name")[2]).to have_content(@user_3.name)
+    within "#most-active" do
+      expect(all(".username")[0]).to have_content(@user_2.name)
+      expect(all(".username")[1]).to have_content(@user_1.name)
+      expect(all(".username")[2]).to have_content(@user_3.name)
     end
 
   end

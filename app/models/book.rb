@@ -28,11 +28,11 @@ class Book < ApplicationRecord
     end
   end
 
-  def self.highest_rated_books
+  def self.highest_rated
     sort_by("avg_rating", "DESC").limit(3)
   end
 
-  def self.lowest_rated_books
+  def self.lowest_rated
     sort_by("avg_rating", "ASC").limit(3)
   end
 

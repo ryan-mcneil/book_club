@@ -10,8 +10,26 @@
   <a id="sort_by_reviews_desc" href="/books?sort=num_reviews&dir=DESC">Most Reviewed</a>
 </div>
 <div class="stats">
-  <div>
-
+  <div id="highest-rated">
+    <h3>Highest Rated Book</h3>
+    <% Book.highest_rated.each do |book| %>
+      <img src= <%= book.image %>>
+      <p class="book-title"><%= book.title %></p>
+    <% end %>
+  </div>
+  <div id="lowest-rated">
+    <h3>Lowest Rated Book</h3>
+    <% Book.lowest_rated.each do |book| %>
+      <img src= <%= book.image %>>
+      <p class="book-title"><%= book.title %></p>
+    <% end %>
+  </div>
+  <div id="most-active">
+    <h3>Most Active User</h3>
+    <% User.most_active.each do |user| %>
+      <img src= <%= user.image %>>
+      <p class="username"><%= user.name %></p>
+    <% end %>
   </div>
 </div>
 <div id="books">
