@@ -67,6 +67,12 @@ RSpec.describe 'as a visitor' do
         expect(page).to have_content(review.description)
         expect(page).to have_content(review.title)
         expect(page).to have_content(review.user.name)
+
+        review_2 = @book_1.reviews.bottom_reviews.first
+        expect(page).to have_content(review.description)
+        expect(page).to have_content(review.title)
+        expect(page).to have_content(review.user.name)
+
       end
     end
   end
