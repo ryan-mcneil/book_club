@@ -60,7 +60,6 @@ describe Book, type: :model do
         title: "Book 3",
         pages: 100,
         year: 1980)
-      @user_6 = User.create(name: "User 6")
       @user_1.reviews.create(
         title: "Amazing",
         description: "That was Amazing!",
