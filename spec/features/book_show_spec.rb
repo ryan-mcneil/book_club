@@ -59,3 +59,5 @@ RSpec.describe 'as a visitor' do
     end
   end
 end
+
+#you need to write tests for top and bottom three reviews show

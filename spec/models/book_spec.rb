@@ -16,7 +16,7 @@ describe Book, type: :model do
 
   describe 'Statistics' do
     before(:each) do
-    book_1 = Book.create(
+    @book_1 = Book.create(
       title: "Book 1",
       pages: 200,
       year: 2000)
@@ -25,7 +25,7 @@ describe Book, type: :model do
       title: "Wonderful",
       description: "That was Fantastic!",
       score: 4,
-      book: book_1)
+      book: @book_1)
 
     book_2 = Book.create(
       title: "Book 2",
@@ -36,7 +36,7 @@ describe Book, type: :model do
       title: "Wonderful",
       description: "That was Fantastic!",
       score: 5,
-      book: book_2)
+      book: @book_1)
 
       book_3 = Book.create(
         title: "Book 1",
@@ -47,7 +47,7 @@ describe Book, type: :model do
         title: "Wonderful",
         description: "That was Fantastic!",
         score: 1,
-        book: book_3)
+        book: @book_1)
 
         book_4 = Book.create(
           title: "Book 4",
@@ -58,12 +58,12 @@ describe Book, type: :model do
           title: "Wonderful",
           description: "That was Fantastic!",
           score: 2,
-          book: book_4)
+          book: @book_1)
 
      end
 
        it 'shows average review rating' do
-         expect(Book.average_rating).to eq(3)
+         expect(@book_1.average_rating).to eq(3)
        end
 
   end
