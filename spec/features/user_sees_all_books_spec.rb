@@ -30,14 +30,12 @@ describe 'when I visit the books index' do
       title: "Book 2",
       pages: 300,
       year: 1960)
-    @user_4 = User.create(name: "User 4")
-    @user_4.reviews.create(
+    @user_1.reviews.create(
       title: "Average",
       description: "That was Average!",
       score: 4,
       book: @book_2)
-    @user_5 = User.create(name: "User 5")
-    @user_5.reviews.create(
+    @user_2.reviews.create(
       title: "What's a book",
       description: "That was a book!",
       score: 2,
@@ -47,8 +45,7 @@ describe 'when I visit the books index' do
       title: "Book 3",
       pages: 100,
       year: 1980)
-    @user_6 = User.create(name: "User 6")
-    @user_6.reviews.create(
+    @user_2.reviews.create(
       title: "Amazing",
       description: "That was Amazing!",
       score: 1,
@@ -184,6 +181,42 @@ describe 'when I visit the books index' do
       expect(all(".book-title")[0]).to have_content(@book_1.title)
       expect(all(".book-title")[1]).to have_content(@book_2.title)
       expect(all(".book-title")[2]).to have_content(@book_3.title)
+    end
+
+  end
+
+  it 'should find highest rated books' do
+
+    visit '/books'
+
+    within "#highest-rated" do
+      expect(all(".book-title")[0]).to have_content(@book_2.title)
+      expect(all(".book-title")[1]).to have_content(@book_1.title)
+      expect(all(".book-title")[2]).to have_content(@book_3.title)
+    end
+
+  end
+
+  it 'should find lowest rated books' do
+
+    visit '/books'
+
+    within "#lowest-rated" do
+      expect(all(".book-title")[0]).to have_content(@book_3.title)
+      expect(all(".book-title")[1]).to have_content(@book_1.title)
+      expect(all(".book-title")[2]).to have_content(@book_2.title)
+    end
+
+  end
+
+  it 'should find most active users' do
+
+    visit '/books'
+
+    within "#most-active" do
+      expect(all(".username")[0]).to have_content(@user_2.name)
+      expect(all(".username")[1]).to have_content(@user_1.name)
+      expect(all(".username")[2]).to have_content(@user_3.name)
     end
 
   end

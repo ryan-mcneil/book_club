@@ -45,14 +45,12 @@ describe Book, type: :model do
         title: "Book 2",
         pages: 300,
         year: 1960)
-      @user_4 = User.create(name: "User 4")
-      @user_4.reviews.create(
+      @user_1.reviews.create(
         title: "Average",
         description: "That was Average!",
         score: 4,
         book: @book_2)
-      @user_5 = User.create(name: "User 5")
-      @user_5.reviews.create(
+      @user_2.reviews.create(
         title: "What's a book",
         description: "That was a book!",
         score: 2,
@@ -62,8 +60,7 @@ describe Book, type: :model do
         title: "Book 3",
         pages: 100,
         year: 1980)
-      @user_6 = User.create(name: "User 6")
-      @user_6.reviews.create(
+      @user_2.reviews.create(
         title: "Amazing",
         description: "That was Amazing!",
         score: 1,
@@ -107,6 +104,16 @@ describe Book, type: :model do
 
       expect(Book.sort_by("num_reviews", "ASC")).to eq(expected_asc)
       expect(Book.sort_by("num_reviews", "DESC")).to eq(expected_desc)
+    end
+
+    it 'should find highest rated books' do
+      expected = [@book_2, @book_1, @book_3]
+      expect(Book.highest_rated).to eq(expected)
+    end
+
+    it 'should find lowest rated books' do
+      expected = [@book_3, @book_1, @book_2]
+      expect(Book.lowest_rated).to eq(expected)
     end
 
   end
