@@ -9,6 +9,11 @@
   <a id="sort_by_reviews_asc" href="/books?sort=num_reviews&dir=ASC">Least Reviewed</a>
   <a id="sort_by_reviews_desc" href="/books?sort=num_reviews&dir=DESC">Most Reviewed</a>
 </div>
+<div class="stats">
+  <div>
+
+  </div>
+</div>
 <div id="books">
   <% @books.each do |book| %>
     <h2 class="book-title"><%= book.title %></h2>

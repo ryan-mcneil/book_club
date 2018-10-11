@@ -60,7 +60,7 @@ describe Book, type: :model do
         title: "Book 3",
         pages: 100,
         year: 1980)
-      @user_1.reviews.create(
+      @user_2.reviews.create(
         title: "Amazing",
         description: "That was Amazing!",
         score: 1,
