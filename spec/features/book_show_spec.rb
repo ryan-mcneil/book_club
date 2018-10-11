@@ -52,9 +52,10 @@ RSpec.describe 'as a visitor' do
       within(".book-stats") do
         expect(page).to have_content(book_1.title)
         expect(page).to have_content(book_1.authors.first.name)
-        save_and_open_page
         expect(page).to have_content(book_1.pages)
-        expect(page).to have_content(book_1.reviews)
+        expect(page).to have_content(book_1.reviews.first.description)
+        expect(page).to have_content(book_1.top_three_reviews)
+        expect(page).to have_content(book_1.bottom_three_reviews)
       end
     end
   end

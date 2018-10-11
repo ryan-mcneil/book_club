@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-10-11T10:13:49-06:00">2018-10-11T10:13:49-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-10-11T10:22:55-06:00">2018-10-11T10:22:55-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>14</b> files in total.
-    <b>119</b> relevant lines. 
-    <span class="green"><b>119</b> lines covered</span> and
+    <b>120</b> relevant lines. 
+    <span class="green"><b>120</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -63,9 +63,9 @@
       <tr>
         <td class="strong"><a href="#1a3d581b357d6e1f32200adb0fd694376f006190" class="src_link" title="app/controllers/books_controller.rb">app/controllers/books_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>15</td>
-        <td>7</td>
-        <td>7</td>
+        <td>16</td>
+        <td>8</td>
+        <td>8</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -117,7 +117,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -254,8 +254,8 @@
     <h3>app/controllers/books_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
+      <b>8</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -320,34 +320,40 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">   @top_three_reviews = @book.reviews.top_reviews</code>
+          <code class="ruby">   require &#39;pry&#39;; binding.pry</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">   @bottom_three_reviews = @book.reviews.bottom_reviews</code>
+          <code class="ruby">   @top_three_reviews = @book.reviews.top_reviews</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">   #top reviews reference the book.reviews.top whatever</code>
+          <code class="ruby">   @bottom_three_reviews = @book.reviews.bottom_reviews</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">   #top reviews reference the book.reviews.top whatever</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">end</code>
@@ -652,8 +658,8 @@
           <code class="ruby">    order(score: :DESC)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="8">
+          <span class="hits">2</span>
           
           <code class="ruby">    .limit(3)</code>
         </li>
