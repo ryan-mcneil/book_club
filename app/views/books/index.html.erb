@@ -1,9 +1,25 @@
 <h1>All Books</h1>
-
-<% @books.each do |book| %>
-  <h2><%= book.title %></h2>
-  <p>Year: <%= book.year %> </p>
-  <p>Pages: <%= book.pages %> </p>
-  <p>Total Reviews: <%= book.reviews.count %></p>
-  <p>Average Rating: <%= book.average_rating %></p>
-<% end %>
+<a id="link_to_new_book_page" href="/books/new">New Book</a>#not tested
+<div>
+  <h2>Sort By:</h2>
+  <a id="sort_by_rating_asc" href="/books?sort=avg_rating&dir=ASC">Lowest Rated</a>
+  <a id="sort_by_rating_desc" href="/books?sort=avg_rating&dir=DESC">Highest Rated</a>
+  <a id="sort_by_pages_asc" href="/books?sort=num_pages&dir=ASC">Least Pages</a>
+  <a id="sort_by_pages_desc" href="/books?sort=num_pages&dir=DESC">Most Pages</a>
+  <a id="sort_by_reviews_asc" href="/books?sort=num_reviews&dir=ASC">Least Reviewed</a>
+  <a id="sort_by_reviews_desc" href="/books?sort=num_reviews&dir=DESC">Most Reviewed</a>
+</div>
+<div id="books">
+  <% @books.each do |book| %>
+    <h2 class="book-title"><%= book.title %></h2>
+    <% if book.authors.count > 1 %>
+      <p>Authors: <%= book.authors.map{|author| author.name}.join(", ") %></p>
+    <% else %>
+      <p>Author: <%= book.authors.first.name %></p>
+    <% end %>
+    <p>Year: <%= book.year %> </p>
+    <p>Pages: <%= book.pages %> </p>
+    <p>Total Reviews: <%= book.reviews.count %></p>
+    <p>Average Rating: <%= book.average_rating.to_i.round(1) %></p>
+  <% end %>
+</div>
