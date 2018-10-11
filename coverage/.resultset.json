@@ -194,6 +194,14 @@
         3,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/ruthbrand/turing/mod_two/book_club/BookClub/spec/models/review_spec.rb": [
@@ -278,6 +286,6 @@
         null
       ]
     },
-    "timestamp": 1539274975
+    "timestamp": 1539279754
   }
 }
