@@ -7,15 +7,21 @@ class Book < ApplicationRecord
   has_many :reviews
 
   def average_rating
-    reviews.average(:score).round(1)
+    reviews.average(:score)
   end
 
-  def self.sort_by(sort, dir = "ASC")
+  def self.sort_by(sort, dir)
     if sort == "avg_rating"
       if dir == "ASC"
-        all
+        all.select("books.*, avg(score) AS avg_score")
+            .joins(:reviews)
+            .group(:book_id, :id)
+            .order("avg_score ASC")
       elsif dir == "DESC"
-        all
+        all.select("books.*, avg(score) AS avg_score")
+            .joins(:reviews)
+            .group(:book_id, :id)
+            .order("avg_score DESC")
       end
     elsif sort == "num_pages"
       if dir == "ASC"
@@ -25,9 +31,15 @@ class Book < ApplicationRecord
       end
     elsif sort == "num_reviews"
       if dir == "ASC"
-        all
+        all.select("books.*, COUNT(reviews) AS review_count")
+            .joins(:reviews)
+            .group(:book_id, :id)
+            .order("review_count ASC")
       elsif dir == "DESC"
-        all
+        all.select("books.*, COUNT(reviews) AS review_count")
+            .joins(:reviews)
+            .group(:book_id, :id)
+            .order("review_count DESC")
       end
     else
       all

@@ -44,15 +44,24 @@ describe 'when I visit the books index' do
       book: @book_2)
 
     @book_3 = Book.create(
-      title: "Book 2",
+      title: "Book 3",
       pages: 100,
-      year: 1960)
+      year: 1980)
     @user_6 = User.create(name: "User 6")
     @user_6.reviews.create(
       title: "Amazing",
       description: "That was Amazing!",
       score: 1,
       book: @book_3)
+
+    @author_1 = Author.create(name: "Author 1")
+    @author_1.book_authors.create(book: @book_1)
+    @author_2 = Author.create(name: "Author 2")
+    @author_2.book_authors.create(book: @book_2)
+    @author_3 = Author.create(name: "Author 3")
+    @author_3.book_authors.create(book: @book_3)
+    @author_4 = Author.create(name: "Author 4")
+    @author_4.book_authors.create(book: @book_3)
 
   end
 
@@ -61,16 +70,25 @@ describe 'when I visit the books index' do
     visit '/books'
 
     expect(page).to have_content(@book_1.title)
+    expect(page).to have_content("Author: #{@book_1.authors.first.name}")
     expect(page).to have_content("Pages: #{@book_1.pages}")
     expect(page).to have_content("Year: #{@book_1.year}")
     expect(page).to have_content("Total Reviews: 3")
     expect(page).to have_content("Average Rating: 2")
 
     expect(page).to have_content(@book_2.title)
+    expect(page).to have_content("Author: #{@book_2.authors.first.name}")
     expect(page).to have_content("Pages: #{@book_2.pages}")
     expect(page).to have_content("Year: #{@book_2.year}")
     expect(page).to have_content("Total Reviews: 2")
     expect(page).to have_content("Average Rating: 3")
+
+    expect(page).to have_content(@book_3.title)
+    expect(page).to have_content("Authors: #{@book_3.authors.first.name}, #{@book_3.authors.last.name}")
+    expect(page).to have_content("Pages: #{@book_3.pages}")
+    expect(page).to have_content("Year: #{@book_3.year}")
+    expect(page).to have_content("Total Reviews: 1")
+    expect(page).to have_content("Average Rating: 1")
   end
 
   it 'should sort by rating, asc' do
