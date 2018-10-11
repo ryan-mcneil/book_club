@@ -51,7 +51,7 @@ describe 'when I visit the books index' do
     @user_6.reviews.create(
       title: "Amazing",
       description: "That was Amazing!",
-      score: 4,
+      score: 1,
       book: @book_3)
 
   end
@@ -77,10 +77,10 @@ describe 'when I visit the books index' do
 
     visit '/books?sort=avg_rating&dir=ASC'
 
-    within "#book" do
-      expect(all(".book-title")[0]).to have_content(@book_1.title)
-      expect(all(".book-title")[1]).to have_content(@book_2.title)
-      expect(all(".book-title")[2]).to have_content(@book_3.title)
+    within "#books" do
+      expect(all(".book-title")[0]).to have_content(@book_3.title)
+      expect(all(".book-title")[1]).to have_content(@book_1.title)
+      expect(all(".book-title")[2]).to have_content(@book_2.title)
     end
 
   end
@@ -90,9 +90,9 @@ describe 'when I visit the books index' do
     visit '/books?sort=avg_rating&dir=DESC'
 
     within "#books" do
-      expect(all(".book-title")[0]).to have_content(@book_3.title)
-      expect(all(".book-title")[1]).to have_content(@book_2.title)
-      expect(all(".book-title")[2]).to have_content(@book_1.title)
+      expect(all(".book-title")[0]).to have_content(@book_2.title)
+      expect(all(".book-title")[1]).to have_content(@book_1.title)
+      expect(all(".book-title")[2]).to have_content(@book_3.title)
     end
 
   end

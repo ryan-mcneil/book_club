@@ -13,25 +13,24 @@ class Book < ApplicationRecord
   def self.sort_by(sort, dir = "ASC")
     if sort == "avg_rating"
       if dir == "ASC"
-        Book.all
-
+        all
       elsif dir == "DESC"
-        Book.all
+        all
       end
     elsif sort == "num_pages"
       if dir == "ASC"
-        Book.all
+        all.order("pages ASC")
       elsif dir == "DESC"
-        Book.all
+        all.order("pages DESC")
       end
     elsif sort == "num_reviews"
       if dir == "ASC"
-        Book.all
+        all
       elsif dir == "DESC"
-        Book.all
+        all
       end
     else
-      Book.all
+      all
     end
   end
 end
