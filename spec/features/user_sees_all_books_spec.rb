@@ -91,9 +91,14 @@ describe 'when I visit the books index' do
     expect(page).to have_content("Average Rating: 1")
   end
 
+
   it 'should sort by rating, asc' do
 
-    visit '/books?sort=avg_rating&dir=ASC'
+    visit '/books'
+
+    click_on 'sort_by_rating_asc'
+
+    expect(page).to have_current_path('/books?sort=avg_rating&dir=ASC')
 
     within "#books" do
       expect(all(".book-title")[0]).to have_content(@book_3.title)
@@ -105,7 +110,11 @@ describe 'when I visit the books index' do
 
   it 'should sort by rating, desc' do
 
-    visit '/books?sort=avg_rating&dir=DESC'
+    visit '/books'
+
+    click_on 'sort_by_rating_desc'
+
+    expect(page).to have_current_path('/books?sort=avg_rating&dir=DESC')
 
     within "#books" do
       expect(all(".book-title")[0]).to have_content(@book_2.title)
@@ -117,7 +126,11 @@ describe 'when I visit the books index' do
 
   it 'should sort by number of pages, asc' do
 
-    visit '/books?sort=num_pages&dir=ASC'
+    visit '/books'
+
+    click_on 'sort_by_pages_asc'
+
+    expect(page).to have_current_path('/books?sort=num_pages&dir=ASC')
 
     within "#books" do
       expect(all(".book-title")[0]).to have_content(@book_3.title)
@@ -129,7 +142,11 @@ describe 'when I visit the books index' do
 
   it 'should sort by number of pages, desc' do
 
-    visit '/books?sort=num_pages&dir=DESC'
+    visit '/books'
+
+    click_on 'sort_by_pages_desc'
+
+    expect(page).to have_current_path('/books?sort=num_pages&dir=DESC')
 
     within "#books" do
       expect(all(".book-title")[0]).to have_content(@book_2.title)
@@ -141,7 +158,11 @@ describe 'when I visit the books index' do
 
   it 'should sort by number of reviews, asc' do
 
-    visit '/books?sort=num_reviews&dir=ASC'
+    visit '/books'
+
+    click_on 'sort_by_reviews_asc'
+
+    expect(page).to have_current_path('/books?sort=num_reviews&dir=ASC')
 
     within "#books" do
       expect(all(".book-title")[0]).to have_content(@book_3.title)
@@ -153,7 +174,11 @@ describe 'when I visit the books index' do
 
   it 'should sort by number of reviews, desc' do
 
-    visit '/books?sort=num_reviews&dir=DESC'
+    visit '/books'
+
+    click_on 'sort_by_reviews_desc'
+
+    expect(page).to have_current_path('/books?sort=num_reviews&dir=DESC')
 
     within "#books" do
       expect(all(".book-title")[0]).to have_content(@book_1.title)
