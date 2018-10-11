@@ -9,6 +9,7 @@
       <h2>Total Reviews: <%=@book.reviews.count%></h2></br>
       <% @book.reviews.each do |review| %>
       <div class="reviews">
+        <h2>User: <%=review.user.name%></h2></br>
         <h2>Review name: <%=review.title%></h2></br>
         <h2>Review: <%=review.description%></h2></br>
         <h2>Score: <%=review.score%></h2></br>

@@ -66,6 +66,7 @@ RSpec.describe 'as a visitor' do
         #look for within block, and test for individual things like review.title
         expect(page).to have_content(review.description)
         expect(page).to have_content(review.title)
+        expect(page).to have_content(review.user.name)
       end
     end
   end
