@@ -8,5 +8,17 @@ class Book < ApplicationRecord
 
   def average_rating
     reviews.average(:score).round(1)
-  end 
+  end
+
+  # def self.top_three_reviews
+  #   select('books.*, AVG(score) AS avg_rating')
+  #   .joins(:reviews)
+  #   .group(:id)
+  #   .order(:avg_rating :DESC)
+  #   .limit(3)
+  # end
+
+  # def self.bottom_three_reviews
+  # end
+
 end
