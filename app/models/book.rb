@@ -9,7 +9,7 @@ class Book < ApplicationRecord
   def average_rating
     reviews.average(:score)
   end
-  
+
   def self.sort_by(sort, dir)
     if sort == "avg_rating"
       select("books.*, avg(score) AS avg_score")
@@ -17,9 +17,9 @@ class Book < ApplicationRecord
         .group(:book_id, :id)
         .order("avg_score #{dir}")
     elsif sort == "num_pages"
-      all.order("pages #{dir}")
+      order("pages #{dir}")
     elsif sort == "num_reviews"
-      all.select("books.*, COUNT(reviews) AS review_count")
+      select("books.*, COUNT(reviews) AS review_count")
         .joins(:reviews)
         .group(:book_id, :id)
         .order("review_count #{dir}")
@@ -27,5 +27,17 @@ class Book < ApplicationRecord
       all
     end
   end
-  
+
+  def self.highest_rated_books
+    all
+  end
+
+  def self.lowest_rated_books
+    all
+  end
+
+  def self.most_active_users
+    all
+  end
+
 end
