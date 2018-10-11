@@ -9,7 +9,7 @@ class Book < ApplicationRecord
   def average_rating
     reviews.average(:score)
   end
-
+  
   def self.sort_by(sort, dir)
     if sort == "avg_rating"
       select("books.*, avg(score) AS avg_score")

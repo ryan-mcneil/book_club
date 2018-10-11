@@ -108,5 +108,6 @@ describe Book, type: :model do
       expect(Book.sort_by("num_reviews", "ASC")).to eq(expected_asc)
       expect(Book.sort_by("num_reviews", "DESC")).to eq(expected_desc)
     end
+
   end
 end
