@@ -114,12 +114,7 @@ describe Book, type: :model do
 
     it 'should find lowest rated books' do
       expected = [@book_3, @book_1, @book_2]
-      expect(Book.highest_rated_books).to eq(expected)
-    end
-
-    it 'should find most active users' do
-      expected = [@user_1, @user_2, @user_3]
-      expect(Book.highest_rated_books).to eq(expected)
+      expect(Book.lowest_rated_books).to eq(expected)
     end
 
   end
