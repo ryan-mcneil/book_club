@@ -59,8 +59,7 @@ describe Book, type: :model do
           description: "That was Fantastic!",
           score: 2,
           book: @book_1)
-
-     end
+       end
 
        it 'shows average review rating' do
          expect(@book_1.average_rating).to eq(3)
