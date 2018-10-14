@@ -37,6 +37,7 @@ class Book < ApplicationRecord
   end
 
   def other_authors(author)
-    remaining = authors.delete(author)
+    remaining = authors - [author]
+    remaining
   end
 end
