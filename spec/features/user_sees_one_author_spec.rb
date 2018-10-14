@@ -34,12 +34,12 @@ describe "user sees one author" do
       @user_1.reviews.create(
         title: "Average",
         description: "That was Average!",
-        score: 4,
+        score: 2,
         book: @book_2)
       @user_2.reviews.create(
-        title: "What's a book",
+        title: "What's a book?",
         description: "That was a book!",
-        score: 2,
+        score: 4,
         book: @book_2)
 
       @book_3 = Book.create(
@@ -78,12 +78,40 @@ describe "user sees one author" do
       visit author_path(@author_1)
 
       within "#books" do
-        expect(page).to have_content(@book_1.title)
-        expect(page).to have_content("Pages: #{@book_1.pages}")
-        expect(page).to have_content(@book_2.title)
-        expect(page).to have_content("Other Authors: #{@author_2.name}")
-        expect(page).to have_content(@book_3.title)
+        within "#book-#{@book_1.id}" do
+          expect(page).to have_content(@book_1.title)
+          expect(page).to have_content("Pages: #{@book_1.pages}")
+        end
+        within "#book-#{@book_2.id}" do
+          expect(page).to have_content(@book_2.title)
+          expect(page).to have_content("Other Authors: #{@author_2.name}")
+        end
+        within "#book-#{@book_3.id}" do
+          expect(page).to have_content(@book_3.title)
+        end
       end
     end
+
+    it "displays a top review for each book" do
+
+      visit author_path(@author_1)
+
+      within "#books" do
+        within "#book-#{@book_1.id}" do
+          expect(page).to have_content("Wonderful")
+          expect(page).to have_content("Score: 4/5")
+          expect(page).to have_content("-User 1")
+        end
+        within "#book-#{@book_2.id}" do
+          expect(page).to have_content("What's a book?")
+        end
+        within "#book-#{@book_3.id}" do
+          expect(page).to have_content("Amazing")
+        end
+      end
+
+    end
+
   end
+
 end

@@ -40,4 +40,8 @@ class Book < ApplicationRecord
     remaining = authors - [author]
     remaining
   end
+
+  def top_reviews(n)
+    reviews.order(score: :DESC).limit(n)
+  end
 end
