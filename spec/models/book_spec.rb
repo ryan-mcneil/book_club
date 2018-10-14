@@ -48,12 +48,12 @@ describe Book, type: :model do
       @user_1.reviews.create(
         title: "Average",
         description: "That was Average!",
-        score: 4,
+        score: 2,
         book: @book_2)
       @user_2.reviews.create(
         title: "What's a book",
         description: "That was a book!",
-        score: 2,
+        score: 4,
         book: @book_2)
 
       @book_3 = Book.create(
@@ -84,6 +84,16 @@ describe Book, type: :model do
 
     it 'should find other authors' do
       expect(@book_3.other_authors(@author_3)).to eq([@author_4])
+    end
+
+    it 'should find top n reviews' do
+      actual_1 = @book_1.top_reviews(1)
+      expect(actual_1.count).to eq(1)
+      expect(actual_1.first.user.name).to eq("User 1")
+
+      actual_2 = @book_2.top_reviews(2)
+      expect(actual_2.count).to eq(2)
+      expect(actual_2.first.user.name).to eq("User 2")
     end
 
   end
