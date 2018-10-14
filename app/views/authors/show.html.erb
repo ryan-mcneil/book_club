@@ -1,0 +1,12 @@
+<h1><%= @author.name %></h1>
+<img src= <%= @author.image %>>
+<div id="books">
+  <% @author.books.each do |book| %>
+    <div class="book">
+      <img src= <%= book.image %>>
+      <p><%= book.title %></p>
+      <p>Pages: <%= book.pages %></p>
+      <p>Other Authors: <%= book.other_authors(@author) %></p>
+    </div>
+    <% end %>
+</div>
