@@ -36,4 +36,7 @@ class Book < ApplicationRecord
     sort_by("avg_rating", "ASC").limit(3)
   end
 
+  def other_authors(author)
+    remaining = authors.delete(author)
+  end
 end

@@ -82,6 +82,10 @@ describe Book, type: :model do
       expect(@book_2.average_rating).to eq(3)
     end
 
+    it 'should find other authors' do
+      expect(@book_3.other_authors(@author_3)). to eq([@author_4])
+    end
+
   end
 
   describe 'class methods' do

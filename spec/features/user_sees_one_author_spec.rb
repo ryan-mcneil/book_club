@@ -68,19 +68,21 @@ describe "user sees one author" do
 
       # click_link article.title
 
-      expect(page).to have_content(@author_1.name)
+      expect(page).to have_content("Author: #{@author_1.name}")
       # expect(page).to have_content(article.body)
 
     end
 
     it "displays the author\'s books" do
 
+      visit author_path(@author_1)
+
       within "#books" do
-        expect(page).to have_content(@book1.title)
-        expect(page).to have_content("Pages: #{@book1.pages}")
-        expect(page).to have_content(@book2.title)
+        expect(page).to have_content(@book_1.title)
+        expect(page).to have_content("Pages: #{@book_1.pages}")
+        expect(page).to have_content(@book_2.title)
         expect(page).to have_content("Other Authors: #{@author_2.name}")
-        expect(page).to have_content(@book3.title)
+        expect(page).to have_content(@book_3.title)
       end
     end
   end
