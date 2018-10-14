@@ -1,0 +1,15 @@
+<h1>Author: <%= @author.name %></h1>
+<img src= <%= @author.image %>>
+<h2>Books by the Author</h2>
+<div id="books">
+  <% @author.books.each do |book| %>
+    <div class="book">
+      <img src= <%= book.image %>>
+      <p><%= book.title %></p>
+      <p>Pages: <%= book.pages %></p>
+      <% if book.other_authors(@author).size > 0 %>
+        <p>Other Authors: <%= book.other_authors(@author).first.name %></p>
+      <% end %>
+    </div>
+    <% end %>
+</div>

@@ -1,19 +1,9 @@
 require 'rails_helper'
 
-describe User, type: :model do
-  describe 'Validations' do
-    it { should validate_presence_of(:name) }
-  end
-
-  describe 'Relationship' do
-    it { should have_many(:reviews) }
-    it { should have_many(:books).through(:reviews) }
-  end
-
-  describe 'class methods' do
+describe "user sees one author" do
+  describe "they link from the books index" do
 
     before(:each) do
-
       @book_1 = Book.create(
         title: "Book 1",
         pages: 200,
@@ -61,11 +51,39 @@ describe User, type: :model do
         description: "That was Amazing!",
         score: 1,
         book: @book_3)
+
+      @author_1 = Author.create(name: "Author 1")
+      @author_1.book_authors.create(book: @book_1)
+      @author_1.book_authors.create(book: @book_2)
+      @author_1.book_authors.create(book: @book_3)
+      @author_2 = Author.create(name: "Author 2")
+      @author_2.book_authors.create(book: @book_2)
+      @author_3 = Author.create(name: "Author 3")
+      @author_3.book_authors.create(book: @book_3)
     end
 
-    it 'should find most active users' do
-      expected = [@user_2, @user_1, @user_3]
-      expect(User.most_active).to eq(expected)
+    it "displays information for one author" do
+
+      visit author_path(@author_1)
+
+      # click_link article.title
+
+      expect(page).to have_content("Author: #{@author_1.name}")
+      # expect(page).to have_content(article.body)
+
+    end
+
+    it "displays the author\'s books" do
+
+      visit author_path(@author_1)
+
+      within "#books" do
+        expect(page).to have_content(@book_1.title)
+        expect(page).to have_content("Pages: #{@book_1.pages}")
+        expect(page).to have_content(@book_2.title)
+        expect(page).to have_content("Other Authors: #{@author_2.name}")
+        expect(page).to have_content(@book_3.title)
+      end
     end
   end
 end

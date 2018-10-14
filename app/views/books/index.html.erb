@@ -12,21 +12,21 @@
 <div class="stats">
   <div id="highest-rated">
     <h3>Highest Rated Book</h3>
-    <% Book.highest_rated.each do |book| %>
+    <% @highest_rated.each do |book| %>
       <img src= <%= book.image %>>
       <p class="book-title"><%= book.title %></p>
     <% end %>
   </div>
   <div id="lowest-rated">
     <h3>Lowest Rated Book</h3>
-    <% Book.lowest_rated.each do |book| %>
+    <% @lowest_rated.each do |book| %>
       <img src= <%= book.image %>>
       <p class="book-title"><%= book.title %></p>
     <% end %>
   </div>
   <div id="most-active">
     <h3>Most Active User</h3>
-    <% User.most_active.each do |user| %>
+    <% @most_active.each do |user| %>
       <img src= <%= user.image %>>
       <p class="username"><%= user.name %></p>
     <% end %>
