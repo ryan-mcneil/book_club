@@ -3,7 +3,7 @@
 <h2>Books by the Author</h2>
 <div id="books">
   <% @author.books.each do |book| %>
-    <div class="book">
+    <div id="book-<%= book.id %>">
       <img src= <%= book.image %>>
       <p><%= book.title %></p>
       <p>Pages: <%= book.pages %></p>
