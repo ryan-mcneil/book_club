@@ -10,6 +10,13 @@
       <% if book.other_authors(@author).size > 0 %>
         <p>Other Authors: <%= book.other_authors(@author).first.name %></p>
       <% end %>
+      <div>
+        <h3>Top Review:</h3>
+        <p><%= book.top_reviews(1).first.title %></p>
+        <p>Score: <%= book.top_reviews(1).first.score %>/5</p>
+        <p>-<%= book.top_reviews(1).first.user.name %></p>
+
+      </div>
     </div>
     <% end %>
 </div>

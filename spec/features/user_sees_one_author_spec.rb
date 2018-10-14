@@ -99,14 +99,14 @@ describe "user sees one author" do
       within "#books" do
         within "#book-#{@book_1.id}" do
           expect(page).to have_content("Wonderful")
-          expect(page).to have_content("4/5")
-          expect(page).to have_content("User 1")
+          expect(page).to have_content("Score: 4/5")
+          expect(page).to have_content("-User 1")
         end
         within "#book-#{@book_2.id}" do
           expect(page).to have_content("What's a book?")
         end
         within "#book-#{@book_3.id}" do
-          expect(page).to have_content("That was Amazing!")
+          expect(page).to have_content("Amazing")
         end
       end
 
