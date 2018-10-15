@@ -43,6 +43,6 @@
     <p>Year: <%= book.year %> </p>
     <p>Pages: <%= book.pages %> </p>
     <p>Total Reviews: <%= book.reviews.count %></p>
-    <p>Average Rating: <%= book.average_rating.to_i.round(1) %></p>
+    <p>Average Rating: <%= book.average_rating.to_f.round(1) %></p>
   <% end %>
 </div>
