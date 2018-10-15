@@ -64,7 +64,7 @@ describe 'when I visit the books index' do
 
   it 'should show all books' do
 
-    visit '/books'
+    visit books_path
 
     expect(page).to have_content(@book_1.title)
     expect(page).to have_content("Author: #{@book_1.authors.first.name}")
@@ -91,7 +91,7 @@ describe 'when I visit the books index' do
 
   it 'should sort by rating, asc' do
 
-    visit '/books'
+    visit books_path
 
     click_on 'sort_by_rating_asc'
 
@@ -107,7 +107,7 @@ describe 'when I visit the books index' do
 
   it 'should sort by rating, desc' do
 
-    visit '/books'
+    visit books_path
 
     click_on 'sort_by_rating_desc'
 
@@ -123,7 +123,7 @@ describe 'when I visit the books index' do
 
   it 'should sort by number of pages, asc' do
 
-    visit '/books'
+    visit books_path
 
     click_on 'sort_by_pages_asc'
 
@@ -139,7 +139,7 @@ describe 'when I visit the books index' do
 
   it 'should sort by number of pages, desc' do
 
-    visit '/books'
+    visit books_path
 
     click_on 'sort_by_pages_desc'
 
@@ -155,7 +155,7 @@ describe 'when I visit the books index' do
 
   it 'should sort by number of reviews, asc' do
 
-    visit '/books'
+    visit books_path
 
     click_on 'sort_by_reviews_asc'
 
@@ -171,11 +171,13 @@ describe 'when I visit the books index' do
 
   it 'should sort by number of reviews, desc' do
 
-    visit '/books'
+    visit books_path
 
     click_on 'sort_by_reviews_desc'
 
     expect(page).to have_current_path('/books?sort=num_reviews&dir=DESC')
+
+    #expect(current_url).to eq(books_url(sort: "num_reviews", dir: "DESC"))
 
     within "#books" do
       expect(all(".book-title")[0]).to have_content(@book_1.title)
@@ -187,7 +189,7 @@ describe 'when I visit the books index' do
 
   it 'should find highest rated books' do
 
-    visit '/books'
+    visit books_path
 
     within "#highest-rated" do
       expect(all(".book-title")[0]).to have_content(@book_2.title)
@@ -199,7 +201,7 @@ describe 'when I visit the books index' do
 
   it 'should find lowest rated books' do
 
-    visit '/books'
+    visit books_path
 
     within "#lowest-rated" do
       expect(all(".book-title")[0]).to have_content(@book_3.title)
@@ -211,7 +213,7 @@ describe 'when I visit the books index' do
 
   it 'should find most active users' do
 
-    visit '/books'
+    visit books_path
 
     within "#most-active" do
       expect(all(".username")[0]).to have_content(@user_2.name)
