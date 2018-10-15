@@ -221,10 +221,38 @@ describe 'when I visit the books index' do
 
   end
 
+  it 'should show me a link to add a new book' do
+    visit '/books'
+    expect(page).to have_link("Add New Book")
+  end
 
+  it 'should take me to a new path when clicking on add new book' do
+    visit '/books'
+    click_on("Add New Book")
+    expect(current_path).to eq(new_book_path)
+  end
 
-    #within
-    #expect(all(".class")[0]).to have_content("name")
-    #expect(all(".class")[1]).to have_content("name")
-    #expect(all(".class")[2]).to have_content("name")
+  it 'should present me with a form that I can fill out' do
+     visit '/books/new'
+    save_and_open_page
+     fill_in :title, with: "snow flower and the secret fan"
+     fill_in :pages, with: 300
+     fill_in :year, with: 1992
+     fill_in :authors, with: "Lisa See"
+   # fill_in :image, with: "https://s13686.pcdn.co/wp-content/uploads/2017/11/mmf_johngotti_infographic_1992_blog-768x432.jpg"
+
+     
+  end
+
 end
+
+#
+# When I click that link, I am taken to a new book path.
+# I can add a new book through a form, including the book's
+# title, author(s), and number of pages in the book.
+# When I submit the form, I am taken to that book's show page.
+
+# Book titles should be converted to Title Case before saving.
+# Book titles should be unique within the system.
+# For authors, a comma-separated list of names should be entered,
+# and each author will be added to the database.

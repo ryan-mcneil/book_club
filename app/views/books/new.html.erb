@@ -1,0 +1,27 @@
+<h1>Create a New Book</h1>
+<%= form_for(@book) do |f| %>
+  <ul>
+  <% @book.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :pages %><br />
+    <%= f.text_field :pages %>
+  </p>
+  <p>
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </p>
+  <p>
+    <%= f.label :authors %><br />
+    <%= f.text_field :authors%>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

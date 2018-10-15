@@ -14,4 +14,8 @@ class BooksController < ApplicationController
    #top reviews reference the book.reviews.top whatever
   end
 
+  def new
+    @book = Book.new
+  end
+
 end
