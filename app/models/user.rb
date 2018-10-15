@@ -11,4 +11,13 @@ class User < ApplicationRecord
       .order("review_count DESC")
       .limit(3)
   end
+
+  def sort_reviews_by(dir)
+    if dir
+      reviews.order("updated_at #{dir}")
+    else
+      reviews
+    end
+  end
+
 end

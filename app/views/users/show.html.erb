@@ -1,0 +1,21 @@
+<h1><%= @user.name %></h1>
+<img src= <%= @user.image %>>
+
+<div>
+  <h2>Sort by:</h2>
+  <a id="sort_by_updated_at_desc" href="/users/<%= @user.id %>?dir=DESC">Newest</a>
+  <a id="sort_by_updated_at_asc" href="/users/<%= @user.id %>?dir=ASC">Oldest</a>
+</div>
+
+<h3>Reviews by this user</h3>
+<div id="reviews">
+  <% @reviews.each do |review| %>
+    <div id="review-<%= review.id %>">
+      <h4 id="review-title"><%= review.title %></h4>
+      <p>Score: <%= review.score %>/5</p>
+      <p><%= review.description %></p>
+    </div>
+  <% end %>
+
+
+</div>
