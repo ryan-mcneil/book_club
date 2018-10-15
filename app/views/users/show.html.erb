@@ -3,13 +3,13 @@
 
 <div>
   <h2>Sort by:</h2>
-  <a id="sort_by_updated_at_desc" href="/users/<%= @user.id %>?sort=updated_at&dir=DESC">Newest</a>
-  <a id="sort_by_updated_at_asc" href="/users/<%= @user.id %>?sort=updated_at&dir=ASC">Oldest</a>
+  <a id="sort_by_updated_at_desc" href="/users/<%= @user.id %>?dir=DESC">Newest</a>
+  <a id="sort_by_updated_at_asc" href="/users/<%= @user.id %>?dir=ASC">Oldest</a>
 </div>
 
 <h3>Reviews by this user</h3>
 <div id="reviews">
-  <% @user.reviews.each do |review| %>
+  <% @reviews.each do |review| %>
     <div id="review-<%= review.id %>">
       <h4 id="review-title"><%= review.title %></h4>
       <p>Score: <%= review.score %>/5</p>

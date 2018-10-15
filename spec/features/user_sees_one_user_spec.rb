@@ -72,12 +72,12 @@ describe 'user sees one user' do
 
       click_on 'sort_by_updated_at_desc'
 
-      expect(page).to have_current_path("/users/#{@user_1.id}?sort=updated_at&dir=DESC")
+      expect(page).to have_current_path("/users/#{@user_1.id}?dir=DESC")
 
       within "#reviews" do
-        expect(all(".review-title")[0]).to have_content(@review_1.title)
-        expect(all(".review-title")[1]).to have_content(@review_2.title)
-        expect(all(".review-title")[2]).to have_content(@review_3.title)
+        expect(all("#review-title")[0]).to have_content(@review_3.title)
+        expect(all("#review-title")[1]).to have_content(@review_2.title)
+        expect(all("#review-title")[2]).to have_content(@review_1.title)
       end
 
     end
@@ -88,12 +88,12 @@ describe 'user sees one user' do
 
       click_on 'sort_by_updated_at_asc'
 
-      expect(page).to have_current_path("/users/#{@user_1.id}?sort=updated_at&dir=ASC")
+      expect(page).to have_current_path("/users/#{@user_1.id}?dir=ASC")
 
       within "#reviews" do
-        expect(all(".review-title")[0]).to have_content(@review_1.title)
-        expect(all(".review-title")[1]).to have_content(@review_2.title)
-        expect(all(".review-title")[2]).to have_content(@review_3.title)
+        expect(all("#review-title")[0]).to have_content(@review_1.title)
+        expect(all("#review-title")[1]).to have_content(@review_2.title)
+        expect(all("#review-title")[2]).to have_content(@review_3.title)
       end
 
     end
