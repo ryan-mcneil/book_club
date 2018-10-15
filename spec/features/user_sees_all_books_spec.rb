@@ -221,37 +221,6 @@ describe 'when I visit the books index' do
 
   end
 
-  it 'should show me a link to add a new book' do
-    visit '/books'
-    expect(page).to have_link("Add New Book")
-  end
-
-  it 'should take me to a new path when clicking on add new book' do
-    visit '/books'
-    click_on("Add New Book")
-    expect(current_path).to eq(new_book_path)
-  end
-
-  it 'creates a new book' do
-     visit new_book_path
-     expect(page).to have_button('create')
-     expect(page).to have_field('title')
-     expect(page).to have_field('year')
-     expect(page).to have_field('pages')
-     expect(page).to have_field('authors')
-   end
-
-   it 'posts the new book to the book index page' do
-     visit new_book_path
-
-     fill_in('title', with: "snow flower and the secret fan")
-     fill_in('year', with: 1987)
-     fill_in('pages', with: 200)
-     fill_in('authors', with: "Lisa See")
-     find_button('create').click
-     save_and_open_page
-    expect(page).to have_current_path(book_path)
-  end
 end
 
 

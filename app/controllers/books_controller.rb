@@ -19,13 +19,18 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new
-    @book.title = params[:book][:title]
-    @book.year = params[:book][:year]
-    @book.authors = params[:book][:authors]
-    @book.pages = params[:book][:pages]
+    require'pry';binding.pry
+    #it wants strong params
+    @book = Book.new(book_params)
     @book.save
     redirect_to book_path(@book)
+  end
+
+
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :year, :pages, :authors)
   end
 
 end

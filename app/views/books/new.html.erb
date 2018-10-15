@@ -1,7 +1,11 @@
-<form class="new-book" action="/books" method="post">
-  <input type="text" name="book[title]" placeholder="title">
-  <input type="text" name="book[pages]" placeholder="pages">
-  <input type="text" name="book[year]" placeholder="year">
-  <input type="text" name="book[authors]" placeholder="authors">
-  <input type="submit" value="create">
-</form>
+<%= form_for [@book] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :authors %>
+  <%= f.checkbox_field :authors, value: "or author(s)" %>
+  <%=f.label :pages %>
+  <%=f.number_field :pages %>
+  <%=f.label :year %>
+  <%=f.number_field :year %>
+   <%= f.submit %>
+<% end %>

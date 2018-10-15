@@ -36,6 +36,10 @@ class Book < ApplicationRecord
     sort_by("avg_rating", "ASC").limit(3)
   end
 
+  # def self.title_case
+  #   camelize(:title)
+  # end
+
   def other_authors(author)
     remaining = authors - [author]
     remaining
@@ -44,4 +48,5 @@ class Book < ApplicationRecord
   def top_reviews(n)
     reviews.order(score: :DESC).limit(n)
   end
+
 end

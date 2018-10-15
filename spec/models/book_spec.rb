@@ -194,6 +194,23 @@ describe Book, type: :model do
       expected = [@book_3, @book_1, @book_2]
       expect(Book.lowest_rated).to eq(expected)
     end
-
+# Book titles should be unique within the system.
+# For authors, a comma-separated list of names should be entered,
+# and each author will be added to the database.
   end
+
+  describe 'uniqueness of book attributes' do
+  #Book titles should be converted to Title Case before saving.
+    it 'should have the titles converted to title case before saving' do
+      @book_1 = Book.create(
+        title: "the great gatsby",
+        pages: 200,
+        year: 2000)
+
+        # @book_1.title_case
+
+      expect(@book_1.title).to eq("The Great Gatsby")
+    end
+ end
+
 end
