@@ -51,7 +51,7 @@ RSpec.describe 'as a visitor' do
        end
 
       it 'i should see the the books basic information' do
-      visit "/books/#{@book_1.id}"
+      visit book_path(@book_1)
 
       within(".book-stats") do
         expect(page).to have_content(@book_1.title)
