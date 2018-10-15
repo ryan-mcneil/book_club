@@ -1,27 +1,7 @@
-<h1>Create a New Book</h1>
-<%= form_for(@book) do |f| %>
-  <ul>
-  <% @book.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :pages %><br />
-    <%= f.text_field :pages %>
-  </p>
-  <p>
-    <%= f.label :year %><br />
-    <%= f.text_field :year %>
-  </p>
-  <p>
-    <%= f.label :authors %><br />
-    <%= f.text_field :authors%>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<form class="new-book" action="/books" method="post">
+  <input type="text" name="book[title]" placeholder="title">
+  <input type="text" name="book[pages]" placeholder="pages">
+  <input type="text" name="book[year]" placeholder="year">
+  <input type="text" name="book[authors]" placeholder="authors">
+  <input type="submit" value="create">
+</form>

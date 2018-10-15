@@ -232,19 +232,48 @@ describe 'when I visit the books index' do
     expect(current_path).to eq(new_book_path)
   end
 
-  it 'should present me with a form that I can fill out' do
-     visit '/books/new'
-    save_and_open_page
-     fill_in :title, with: "snow flower and the secret fan"
-     fill_in :pages, with: 300
-     fill_in :year, with: 1992
-     fill_in :authors, with: "Lisa See"
+  it 'creates a new book' do
+     visit new_book_path
+     expect(page).to have_button('create')
+     expect(page).to have_field('title')
+     expect(page).to have_field('year')
+     expect(page).to have_field('pages')
+     expect(page).to have_field('authors')
+   end
+
+   it 'posts the new book to the book index page' do
+     visit new_book_path
+
+     fill_in('title', with: "snow flower and the secret fan")
+     fill_in('year', with: 1987)
+     fill_in('pages', with: 200)
+     fill_in('authors', with: "Lisa See")
+     find_button('create').click
+     save_and_open_page
+    expect(page).to have_current_path(book_path)
+  end
+end
+
+
+# it 'posts to the comedian homepage' do
+# visit 'comedians/new'
+#
+# fill_in('name', with:'Ruth Brand')
+# fill_in('age', with:'30')
+# fill_in('city', with: 'Denver, CO')
+# find_button('create').click
+#
+# expect(page).to have_current_path('/comedians')
+# expect(page).to have_content "Ruth Brand"
+# expect(page).to have_content "30"
+# expect(page).to have_content "Denver, CO"
+# end
+# end
+
    # fill_in :image, with: "https://s13686.pcdn.co/wp-content/uploads/2017/11/mmf_johngotti_infographic_1992_blog-768x432.jpg"
 
-     
-  end
 
-end
+
 
 #
 # When I click that link, I am taken to a new book path.
