@@ -51,28 +51,28 @@ describe 'user sees one user' do
 
       within "#reviews" do
 
-        within "#reviews-#{@review_1.id}" do
+        within "#review-#{@review_1.id}" do
           expect(page).to have_content(@review_1.title)
           expect(page).to have_content("Score: #{@review_1.score}/5")
           expect(page).to have_content(@review_1.description)
         end
-        within "#reviews-#{@review_2.id}" do
+        within "#review-#{@review_2.id}" do
           expect(page).to have_content(@review_2.title)
         end
-        within "#reviews-#{@review_3.id}" do
+        within "#review-#{@review_3.id}" do
           expect(page).to have_content(@review_3.title)
         end
 
       end
     end
 
-    xit 'should be able to sort them by date, newest first' do
+    it 'should be able to sort them by date, newest first' do
 
       visit user_path(@user_1)
 
       click_on 'sort_by_updated_at_desc'
 
-      expect(page).to have_current_path('/user/:id?sort=updated_at&dir=DESC')
+      expect(page).to have_current_path("/users/#{@user_1.id}?sort=updated_at&dir=DESC")
 
       within "#reviews" do
         expect(all(".review-title")[0]).to have_content(@review_1.title)
@@ -82,13 +82,13 @@ describe 'user sees one user' do
 
     end
 
-    xit 'should be able to sort them by date, oldest first' do
+    it 'should be able to sort them by date, oldest first' do
 
       visit user_path(@user_1)
 
       click_on 'sort_by_updated_at_asc'
 
-      expect(page).to have_current_path('/user/:id?sort=updated_at&dir=ASC')
+      expect(page).to have_current_path("/users/#{@user_1.id}?sort=updated_at&dir=ASC")
 
       within "#reviews" do
         expect(all(".review-title")[0]).to have_content(@review_1.title)
