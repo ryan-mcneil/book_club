@@ -39,7 +39,7 @@ end
   rand(1..5).times do
     user.reviews.create(
       title: Faker::MichaelScott.quote,
-      description: Faker::SiliconValley.quote,
+      description: Faker::DumbAndDumber.quote,
       score: Faker::Number.between(1, 5),
       book_id: rand(1..30)
    )
