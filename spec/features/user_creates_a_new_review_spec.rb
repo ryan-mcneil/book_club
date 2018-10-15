@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "user creates a new review" do
   describe "they link from a books show page" do
-    describe "they fill in a title, score, and descripion" do
+    describe "they fill in a title, score, and description" do
       it "creates a new review" do
 
         @book_1 = Book.create(
@@ -16,12 +16,14 @@ describe "user creates a new review" do
         # expect(current_path).to eq(new_book_review_path(@book_1))
         visit '/books/1/reviews/new'
 
+        fill_in "review[name]", with: "New Name"
         fill_in "review[title]", with: "New Title"
         fill_in "review[score]",  with: 4
-        fill_in "review[descripion]",  with: "This is a new description."
+        fill_in "review[description]",  with: "This is a new description."
         click_on "Create Review"
 
 
+        expect(page).to have_content("New Name")
         expect(page).to have_content("New Title")
         expect(page).to have_content("4/5")
         expect(page).to have_content("This is a new description.")
