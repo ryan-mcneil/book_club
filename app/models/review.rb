@@ -13,5 +13,9 @@ class Review < ApplicationRecord
     .limit(3)
   end
 
-  #caluculate books average review here
+  def assign_user(username)
+    user = User.find_or_create_by(name: username)
+    self.user = user
+  end
+
 end

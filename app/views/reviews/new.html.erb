@@ -1,13 +1,13 @@
 <h1>Create a New Review</h1>
-<%= form_for(@review) do |f| %>
+<%= form_for([@book, @review]) do |f| %>
   <ul>
     <% @review.errors.full_messages.each do |error| %>
       <li> <%= error %></li>
       <% end %>
   </ul>
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    Username:<br>
+      <input type="text" name="username"><br>
   </p>
   <p>
     <%= f.label :title %><br />
@@ -15,7 +15,7 @@
   </p>
   <p>
     <%= f.label :score %><br />
-    <%= f.text_field :score %>
+    <%= f.text_field :score %>/5
   </p>
   <p>
     <%= f.label :description %><br />
