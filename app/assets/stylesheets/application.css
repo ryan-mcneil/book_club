@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+ .book-stats {
+   display: flex; /* or inline-flex */
+   flex-direction: column;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+ }
+
+ .book-stats {
+   display: flex; /* or inline-flex */
+   flex-direction: column;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+ }
+
+ .reviews{
+   display: flex;
+   flex-direction: row;
+ }
+
+ .book-index {
+   display: flex; /* or inline-flex */
+   flex-direction: column;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+ }
+
+ .sort-by {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}

@@ -1,6 +1,7 @@
+<div class="book-index">
 <h1>All Books</h1>
 <a id="link_to_new_book_page" href="/books/new">New Book</a>#not tested
-<div>
+<div class="sort-by">
   <h2>Sort By:</h2>
   <a id="sort_by_rating_asc" href="/books?sort=avg_rating&dir=ASC">Lowest Rated</a>
   <a id="sort_by_rating_desc" href="/books?sort=avg_rating&dir=DESC">Highest Rated</a>
@@ -45,4 +46,5 @@
     <p>Total Reviews: <%= book.reviews.count %></p>
     <p>Average Rating: <%= book.average_rating.to_i.round(1) %></p>
   <% end %>
+</div>
 </div>
