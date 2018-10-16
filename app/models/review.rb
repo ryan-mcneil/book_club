@@ -14,8 +14,15 @@ class Review < ApplicationRecord
   end
 
   def assign_user(username)
+    username = to_capital_case(username)
     user = User.find_or_create_by(name: username)
     self.user = user
+  end
+
+  def to_capital_case(name)
+    name.downcase.split(" ")
+        .map { |l| l.capitalize }
+        .join(" ")
   end
 
 end

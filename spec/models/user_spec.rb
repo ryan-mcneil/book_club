@@ -147,6 +147,11 @@ describe User, type: :model do
       expect(new_review.user.id).to eq(@user_1.id)
 
     end
+    it 'should capital case a name' do
+      expect(@review_1.to_capital_case("new name")).to eq("New Name")
+      expect(@review_1.to_capital_case("New name")).to eq("New Name")
+      expect(@review_1.to_capital_case("Another new Name")).to eq("Another New Name")
+    end
 
 
 
