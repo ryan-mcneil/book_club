@@ -58,7 +58,7 @@ Abilities Expectations (Technical strengths and areas for desired improvement):
   - Ruth: Rails, database, MVC stuff makes sense, but needs to work on layouts
 
 Workload Expectations (What features do we each want to work on?):
-  -
+  -Ryan on Index, and Ruth on Book show to begin. Knock out user stories as needed
 
 Workflow Expectations (Git workflow/Tools/Code Review/Reviewing Pull Requests):
   - Use waffle.io for breaking up user stories.
