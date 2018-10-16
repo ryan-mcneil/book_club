@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "user deletes a review" do
-  describe "they link from the user show page" do
+describe "user visits user show page" do
+  describe "they delete a review" do
     it "displays all reviews without the deleted entry" do
 
       @book_1 = Book.create(
