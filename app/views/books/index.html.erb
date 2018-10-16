@@ -14,14 +14,14 @@
     <h3>Highest Rated Book</h3>
     <% @highest_rated.each do |book| %>
       <img src= <%= book.image %>>
-      <p class="book-title"><%= book.title %></p>
+      <%= link_to book.title, book_path(book), class: "book-title" %>
     <% end %>
   </div>
   <div id="lowest-rated">
     <h3>Lowest Rated Book</h3>
     <% @lowest_rated.each do |book| %>
       <img src= <%= book.image %>>
-      <p class="book-title"><%= book.title %></p>
+      <%= link_to book.title, book_path(book), class: "book-title" %>
     <% end %>
   </div>
   <div id="most-active">
