@@ -14,7 +14,7 @@
       <h4 id="review-title"><%= review.title %></h4>
       <p>Score: <%= review.score %>/5</p>
       <p><%= review.description %></p>
-      <%= link_to "Delete", [review.book, review], method: :delete, data: {confirm: "Do you really want to delete the review?"} %>
+      <%= link_to "Delete", book_review_path(review), method: :delete, data: {confirm: "Do you really want to delete this review?"} %>
     </div>
   <% end %>
 

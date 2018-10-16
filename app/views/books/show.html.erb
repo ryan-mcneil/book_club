@@ -5,6 +5,7 @@
         <%end%>
       </h2></nr>
       <h2>Pages: <%=@book.pages%></h2></br>
+      <%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Do you really want to delete this author?"} %>
       <%= link_to "Create a New Review", new_book_review_path(@book), class: "new-review" %>
 
       <h2>Total Reviews: <%=@book.reviews.count%></h2></br>

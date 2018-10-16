@@ -72,13 +72,14 @@ describe "user deletes a review" do
       expect(page).to have_content(@book_2.title)
       expect(page).to have_content(@book_3.title)
       expect(page).to_not have_content(@book_1.title)
+
       expect(Book.all).to include(@book_2)
       expect(Book.all).to_not include(@book_1)
 
       expect(Review.all).to_not include(@review_1)
       expect(Review.all).to_not include(@review_2)
       expect(Review.all).to_not include(@review_3)
-      
+
 
     end
   end
