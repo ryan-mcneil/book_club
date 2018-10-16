@@ -34,7 +34,7 @@
 </div>
 <div id="books">
   <% @books.each do |book| %>
-    <div id="book-<% book.id %>">
+    <div id="book-<%= book.id %>">
       <h2 class="book-title"><%= book.title %></h2>
       <% if book.authors.count > 1 %>
         <p>Authors: <%= book.authors.map{|author| author.name}.join(", ") %></p>

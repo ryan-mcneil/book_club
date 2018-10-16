@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'user visits author\'s show page' do
-  describe 'they delete the author' do
+  describe 'they click delete' do
 
     before(:each) do
       @book_1 = Book.create(
@@ -124,8 +124,8 @@ describe 'user visits author\'s show page' do
 
       expect(page).to_not have_content(@author_3.name)
 
-      expect(Author.all).to_not include(@author_1)
-      expect(Book.all).to include(@book_1)
+      expect(Author.all).to_not include(@author_3)
+      expect(Book.all).to include(@book_3)
 
       within "#book-#{@book_1.id}" do
         expect(page).to have_content("Author: #{@author_1.name}")
