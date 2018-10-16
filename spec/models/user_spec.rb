@@ -68,16 +68,6 @@ describe User, type: :model do
       expect(User.most_active).to eq(expected)
     end
 
-    it 'should sort reviews by newest' do
-      expected = [@review_6, @review_5, @review_2]
-      expect(@user_2.sort_reviews_by("DESC")).to eq(expected)
-    end
-
-    it 'should sort reviews by oldest' do
-      expected = [@review_2, @review_5, @review_6]
-      expect(@user_2.sort_reviews_by("ASC")).to eq(expected)
-    end
-
   end
 
   describe 'instance methods' do
@@ -133,24 +123,14 @@ describe User, type: :model do
         book: @book_3)
     end
 
-    it 'should assign a new user' do
-      new_review = @book_1.reviews.new(title: "New Review", description: "New description", score: "3")
-      new_review.assign_user("New Username")
-      expect(new_review.user.name).to eq("New Username")
-      expect(new_review.user.id).to eq(User.all.last.id)
+    it 'should sort reviews by newest' do
+      expected = [@review_6, @review_5, @review_2]
+      expect(@user_2.sort_reviews_by("DESC")).to eq(expected)
     end
 
-    it 'should assign an exisitng user' do
-      new_review = @book_1.reviews.new(title: "New Review", description: "New description", score: "3")
-      new_review.assign_user("User 1")
-      expect(new_review.user.name).to eq("User 1")
-      expect(new_review.user.id).to eq(@user_1.id)
-
-    end
-    it 'should capital case a name' do
-      expect(@review_1.to_capital_case("new name")).to eq("New Name")
-      expect(@review_1.to_capital_case("New name")).to eq("New Name")
-      expect(@review_1.to_capital_case("Another new Name")).to eq("Another New Name")
+    it 'should sort reviews by oldest' do
+      expected = [@review_2, @review_5, @review_6]
+      expect(@user_2.sort_reviews_by("ASC")).to eq(expected)
     end
 
 
