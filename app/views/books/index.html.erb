@@ -34,15 +34,18 @@
 </div>
 <div id="books">
   <% @books.each do |book| %>
-    <h2 class="book-title"><%= book.title %></h2>
-    <% if book.authors.count > 1 %>
-      <p>Authors: <%= book.authors.map{|author| author.name}.join(", ") %></p>
-    <% else %>
-      <p>Author: <%= book.authors.first.name %></p>
-    <% end %>
-    <p>Year: <%= book.year %> </p>
-    <p>Pages: <%= book.pages %> </p>
-    <p>Total Reviews: <%= book.reviews.count %></p>
-    <p>Average Rating: <%= book.average_rating.to_f.round(1) %></p>
+    <div id="book-<%= book.id %>">
+      <h2 class="book-title"><%= book.title %></h2>
+      <% if book.authors.count > 1 %>
+        <p>Authors: <%= book.authors.map{|author| author.name}.join(", ") %></p>
+      <% else %>
+        <p>Author: <%= book.authors.first.name %></p>
+      <% end %>
+      <p>Year: <%= book.year %> </p>
+      <p>Pages: <%= book.pages %> </p>
+      <p>Total Reviews: <%= book.reviews.count %></p>
+      <p>Average Rating: <%= book.average_rating.to_f.round(1) %></p>
+    </div>
+
   <% end %>
 </div>

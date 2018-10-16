@@ -1,5 +1,7 @@
 <h1>Author: <%= @author.name %></h1>
 <img src= <%= @author.image %>>
+<%= link_to "Delete", author_path(@author), method: :delete, data: {confirm: "Do you really want to delete this author?"} %>
+
 <h2>Books by the Author</h2>
 <div id="books">
   <% @author.books.each do |book| %>

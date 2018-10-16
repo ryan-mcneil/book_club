@@ -1,10 +1,10 @@
 class Book < ApplicationRecord
   validates_presence_of :title, :pages, :year
 
-  has_many :book_authors
+  has_many :book_authors, dependent: :destroy
   has_many :authors, through: :book_authors
   has_many :users, through: :reviews
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   def average_rating
     reviews.average(:score)
