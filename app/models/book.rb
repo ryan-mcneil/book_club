@@ -12,7 +12,10 @@ class Book < ApplicationRecord
 
   def self.sort_by(sort, dir)
     if sort == "avg_rating"
-      select("books.*, avg(reviews.score) AS avg_score")
+      select("books.*,
+        CASE WHEN count(reviews.score) = 0
+          THEN 0 ELSE avg(reviews.score)
+          END AS avg_score")
         .left_outer_joins(:reviews)
         .group(:book_id, :id)
         .order("avg_score #{dir}")
