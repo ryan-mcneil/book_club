@@ -14,4 +14,21 @@ class BooksController < ApplicationController
    #top reviews reference the book.reviews.top whatever
   end
 
+  def destroy
+    # binding.pry
+    book = Book.find(params[:id])
+
+    book.reviews.each do |review|
+      review.destroy
+    end
+
+    book.book_authors.each do |book_author|
+      book_author.destroy
+    end
+
+    book.destroy
+
+    redirect_to books_path
+  end
+
 end
