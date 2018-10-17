@@ -71,6 +71,17 @@ RSpec.describe 'as a visitor' do
       expect(current_path).to eq(book_path(@book_1))
     end
 
+    it 'should link from an author page' do
+
+      visit author_path(@author_1)
+
+      within "#book-#{@book_1.id}" do
+        click_link "#{@book_1.title}"
+      end
+
+      expect(current_path).to eq(book_path(@book_1))
+    end
+
 
   end
 end
