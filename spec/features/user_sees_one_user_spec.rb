@@ -108,11 +108,22 @@ describe 'user sees one user' do
 
     end
 
-    it 'should link from book show page' do
+    it 'should link from book index page' do
 
       visit books_path
 
       within "#most-active" do
+        click_link "#{@user_1.name}"
+      end
+
+      expect(current_path).to eq(user_path(@user_1))
+    end
+
+    it 'should link from book show page' do
+
+      visit book_path(@book_1)
+
+      within ".reviews" do
         click_link "#{@user_1.name}"
       end
 
