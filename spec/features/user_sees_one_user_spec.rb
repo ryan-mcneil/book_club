@@ -44,6 +44,7 @@ describe 'user sees one user' do
         @author_3.book_authors.create(book: @book_3)
         @author_4 = Author.create(name: "Author 4")
         @author_4.book_authors.create(book: @book_3)
+
     end
 
     it 'should display all info for the user' do
@@ -112,6 +113,17 @@ describe 'user sees one user' do
       visit books_path
 
       within "#most-active" do
+        click_link "#{@user_1.name}"
+      end
+
+      expect(current_path).to eq(user_path(@user_1))
+    end
+
+    it 'should link from author show page' do
+
+      visit author_path(@author_1)
+
+      within ".username" do
         click_link "#{@user_1.name}"
       end
 
