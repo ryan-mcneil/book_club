@@ -10,7 +10,8 @@
       <%= link_to book.title, book_path(book), class: "book-title" %>
       <p>Pages: <%= book.pages %></p>
       <% if book.other_authors(@author).size > 0 %>
-        <p>Other Authors: <%= book.other_authors(@author).first.name %></p>
+        <p class="other-authors">Other Authors:
+          <%= link_to book.other_authors(@author).first.name, author_path(book.other_authors(@author).first), class: "author-name" %></p>
       <% end %>
       <div>
         <h3>Top Review:</h3>

@@ -134,6 +134,17 @@ describe "user sees one author" do
       expect(current_path).to eq(author_path(@author_1))
     end
 
+    it 'should link from book author page' do
+
+      visit author_path(@author_2)
+
+      within ".other-authors" do
+        click_link "#{@author_1.name}"
+      end
+
+      expect(current_path).to eq(author_path(@author_1))
+    end
+
   end
 
 end

@@ -1,7 +1,8 @@
 <div class="book-stats">
       <h2>Title: <%=@book.title%></h2></br>
       <h2 class="authors">Author(s): <%@book.authors.each do |author|%>
-        <%= link_to author.name, author_path(author), class: "author-name" %>        <%end%>
+        <%= link_to author.name, author_path(author), class: "author-name" %>
+      <%end%>
       </h2></nr>
       <h2>Pages: <%=@book.pages%></h2></br>
       <%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Do you really want to delete this book?"} %>
