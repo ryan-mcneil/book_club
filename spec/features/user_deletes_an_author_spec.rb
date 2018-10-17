@@ -79,7 +79,7 @@ describe 'user visits author\'s show page' do
       end
 
       within "#book-#{@book_3.id}" do
-        expect(page).to have_content("Authors: #{@author_3.name}, #{@author_4.name}")
+        expect(page).to have_content("#{@author_3.name} #{@author_4.name}")
       end
 
 
@@ -106,7 +106,7 @@ describe 'user visits author\'s show page' do
       end
 
       within "#book-#{@book_3.id}" do
-        expect(page).to have_content("Authors: #{@author_3.name}, #{@author_4.name}")
+        expect(page).to have_content("#{@author_3.name} #{@author_4.name}")
         expect(page).to have_content(@book_3.title)
       end
 

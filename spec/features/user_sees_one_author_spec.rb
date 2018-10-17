@@ -122,6 +122,17 @@ describe "user sees one author" do
 
       expect(current_path).to eq(author_path(@author_1))
     end
+    
+    it 'should link from index page' do
+
+      visit books_path
+
+      within "#book-#{@book_1.id}" do
+        click_link "#{@author_1.name}"
+      end
+
+      expect(current_path).to eq(author_path(@author_1))
+    end
 
   end
 
