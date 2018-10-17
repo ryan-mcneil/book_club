@@ -28,7 +28,8 @@
     <h3>Most Active User</h3>
     <% @most_active.each do |user| %>
       <img src= <%= user.image %>>
-      <p class="username"><%= user.name %></p>
+      <p class="username">
+        <%= link_to user.name, user_path(user), class: "user-link" %></p>
     <% end %>
   </div>
 </div>

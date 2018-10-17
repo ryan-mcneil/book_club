@@ -35,6 +35,15 @@ describe 'user sees one user' do
         description: "That was Amazing!",
         score: 1,
         book: @book_3)
+
+        @author_1 = Author.create(name: "Author 1")
+        @author_1.book_authors.create(book: @book_1)
+        @author_2 = Author.create(name: "Author 2")
+        @author_2.book_authors.create(book: @book_2)
+        @author_3 = Author.create(name: "Author 3")
+        @author_3.book_authors.create(book: @book_3)
+        @author_4 = Author.create(name: "Author 4")
+        @author_4.book_authors.create(book: @book_3)
     end
 
     it 'should display all info for the user' do
@@ -96,6 +105,17 @@ describe 'user sees one user' do
         expect(all("#review-title")[2]).to have_content(@review_3.title)
       end
 
+    end
+
+    it 'should link from book show page' do
+
+      visit books_path
+
+      within "#most-active" do
+        click_link "#{@user_1.name}"
+      end
+
+      expect(current_path).to eq(user_path(@user_1))
     end
   end
 
