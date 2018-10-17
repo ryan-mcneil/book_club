@@ -37,9 +37,11 @@
     <div id="book-<%= book.id %>">
       <%= link_to book.title, book_path(book), class: "book-title" %>
       <% if book.authors.count > 1 %>
-        <p>Authors: <%= book.authors.map{|author| author.name}.join(", ") %></p>
+        <p>Authors:<% book.authors.each do |author| %>
+          <%= link_to author.name, author_path(author), class: "author-name" %>
+        <% end %></p>
       <% else %>
-        <p>Author: <%= book.authors.first.name %></p>
+        <p>Author: <%= link_to book.authors.first.name, author_path(book.authors.first), class: "author-name" %></p>
       <% end %>
       <p>Year: <%= book.year %> </p>
       <p>Pages: <%= book.pages %> </p>

@@ -117,10 +117,32 @@ describe "user sees one author" do
       visit books_path
 
       within "#book-#{@book_1.id}" do
-        click_link "#{@book_1.title}"
+        click_link "#{@author_1.name}"
       end
 
-      expect(current_path).to eq(book_path(@book_1))
+      expect(current_path).to eq(author_path(@author_1))
+    end
+
+    it 'should link from book show page' do
+
+      visit book_path(@book_1)
+
+      within ".authors" do
+        click_link "#{@author_1.name}"
+      end
+
+      expect(current_path).to eq(author_path(@author_1))
+    end
+
+    it 'should link from book author page' do
+
+      visit author_path(@author_2)
+
+      within ".other-authors" do
+        click_link "#{@author_1.name}"
+      end
+
+      expect(current_path).to eq(author_path(@author_1))
     end
 
   end

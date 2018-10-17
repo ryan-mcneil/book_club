@@ -81,7 +81,7 @@ describe 'when I visit the books index' do
     expect(page).to have_content("Average Rating: 3")
 
     expect(page).to have_content(@book_3.title)
-    expect(page).to have_content("Authors: #{@book_3.authors.first.name}, #{@book_3.authors.last.name}")
+    expect(page).to have_content("Authors: #{@book_3.authors.first.name} #{@book_3.authors.last.name}")
     expect(page).to have_content("Pages: #{@book_3.pages}")
     expect(page).to have_content("Year: #{@book_3.year}")
     expect(page).to have_content("Total Reviews: 1")
