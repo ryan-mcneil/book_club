@@ -61,6 +61,7 @@ RSpec.describe 'as a visitor' do
     end
 
     it 'should link from index page' do
+      binding.pry
 
       visit books_path
 

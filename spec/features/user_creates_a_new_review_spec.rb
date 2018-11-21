@@ -16,12 +16,12 @@ describe "user creates a new review" do
         expect(current_path).to eq(new_book_review_path(@book_1))
 
         fill_in "username", with: "new name"
-        fill_in "review[title]", with: "New Title"
+        fill_in :review_title, with: "New Title"
         fill_in "review[score]",  with: 4
         fill_in "review[description]",  with: "This is a new description."
         click_on "Create Review"
 
-
+last_book = Book.last
         expect(page).to have_content("New Name")
         expect(page).to have_content("New Title")
         expect(page).to have_content("4/5")

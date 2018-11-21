@@ -20,7 +20,7 @@
   <div id="lowest-rated">
     <h3>Lowest Rated Book</h3>
     <% @lowest_rated.each do |book| %>
-      <img src= <%= book.image %>>
+      <img src="<%= book.image %>">
       <%= link_to book.title, book_path(book), class: "book-title" %>
     <% end %>
   </div>
