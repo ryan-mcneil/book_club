@@ -14,7 +14,7 @@ class Review < ApplicationRecord
   end
 
   def assign_user(username)
-    username = to_capital_case(username)
+    username = username.titleize
     user = User.find_or_create_by(name: username)
     self.user = user
   end

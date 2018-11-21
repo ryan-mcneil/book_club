@@ -123,7 +123,7 @@ describe Review, type: :model do
       new_review = @book_1.reviews.new(title: "New Review", description: "New description", score: "3")
       new_review.assign_user("New Username")
       expect(new_review.user.name).to eq("New Username")
-      expect(new_review.user.id).to eq(User.all.last.id)
+      expect(new_review.user).to eq(User.all.last)
     end
 
     it 'should assign an exisitng user' do
@@ -133,7 +133,7 @@ describe Review, type: :model do
       expect(new_review.user.id).to eq(@user_1.id)
 
     end
-    
+
     it 'should capital case a name' do
       expect(@review_1.to_capital_case("new name")).to eq("New Name")
       expect(@review_1.to_capital_case("New name")).to eq("New Name")

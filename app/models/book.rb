@@ -20,7 +20,7 @@ class Book < ApplicationRecord
         .group(:book_id, :id)
         .order("avg_score #{dir}")
     elsif sort == "num_pages"
-      order("pages #{dir}")
+      order("pages ?", dir)
     elsif sort == "num_reviews"
       select("books.*, COUNT(reviews) AS review_count")
         .left_outer_joins(:reviews)
@@ -40,8 +40,7 @@ class Book < ApplicationRecord
   end
 
   def other_authors(author)
-    remaining = authors - [author]
-    remaining
+    authors - [author]
   end
 
   def top_reviews(n)
